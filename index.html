@@ -14,20 +14,20 @@
             margin-bottom: 15px;
         }
 
-        /* Style the button to be larger */
+        /* Style for the button to make it bigger */
         button {
-            width: 150px;  /* Make button larger */
-            height: 50px;  /* Increase height */
-            font-size: 20px;  /* Increase font size for better readability */
+            width: 150px;  /* Make the button wider */
+            height: 50px;  /* Make the button taller */
+            font-size: 20px;  /* Increase the font size */
             background-color: #4CAF50;  /* Green background */
             color: white;  /* White text */
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
+            border: none;  /* Remove borders */
+            border-radius: 5px;  /* Rounded corners */
+            cursor: pointer;  /* Pointer cursor */
         }
 
         button:hover {
-            background-color: #45a049;  /* Darker green on hover */
+            background-color: #45a049; /* Darker green on hover */
         }
 
         /* Add some padding for better mobile experience */
@@ -44,9 +44,8 @@
             }
 
             button {
-                width: 120px;  /* Adjust button size for mobile */
-                height: 45px;
-                font-size: 18px;
+                width: 120px; /* Adjust button size for mobile */
+                height: 60px; /* Adjust height for touch devices */
             }
         }
     </style>
@@ -76,6 +75,32 @@
     <h2 id="result"></h2>
 
     <script>
-        // Function to clear input when field gets focus
-        function clearInputOnFocus() {
-            const
+        function calculateNumber() {
+            // Get inputs from the form
+            let targetAverage = parseFloat(document.getElementById('targetAverage').value);
+            let num1 = parseFloat(document.getElementById('num1').value);
+            let num2 = parseFloat(document.getElementById('num2').value);
+            let num3 = parseFloat(document.getElementById('num3').value);
+            let num4 = parseFloat(document.getElementById('num4').value) || null;
+
+            // Array of provided numbers
+            let numbers = [num1, num2, num3];
+            if (num4 !== null) {
+                numbers.push(num4); // Add the 4th number if provided
+            }
+
+            // Calculate the total number of elements
+            let totalElements = numbers.length + 1;
+
+            // Calculate the sum of the given numbers
+            let sumOfGivenNumbers = numbers.reduce((a, b) => a + b, 0);
+
+            // Calculate the number required to reach the target average
+            let requiredNumber = (targetAverage * totalElements) - sumOfGivenNumbers;
+
+            // Display the result
+            document.getElementById('result').innerText = "Required number: " + requiredNumber;
+        }
+    </script>
+</body>
+</html>
