@@ -20,11 +20,32 @@
             font-family: Arial, sans-serif;
         }
 
+        /* Button styling */
+        button {
+            width: 150px;
+            height: 50px;
+            font-size: 20px;
+            background-color: #4CAF50; /* Green background */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049; /* Darker green when hovered */
+        }
+
         /* Responsive design for mobile */
         @media only screen and (max-width: 600px) {
             input[type="number"] {
                 width: 80px; /* Adjust width for mobile */
                 height: 50px; /* Slightly bigger for touch devices */
+            }
+
+            button {
+                width: 130px;
+                height: 60px; /* Bigger for mobile */
             }
         }
     </style>
@@ -54,32 +75,6 @@
     <h2 id="result"></h2>
 
     <script>
+        // Function to calculate the required number for the target average
         function calculateNumber() {
-            // Get inputs from the form
-            let targetAverage = parseFloat(document.getElementById('targetAverage').value);
-            let num1 = parseFloat(document.getElementById('num1').value);
-            let num2 = parseFloat(document.getElementById('num2').value);
-            let num3 = parseFloat(document.getElementById('num3').value);
-            let num4 = parseFloat(document.getElementById('num4').value) || null;
-
-            // Array of provided numbers
-            let numbers = [num1, num2, num3];
-            if (num4 !== null) {
-                numbers.push(num4); // Add the 4th number if provided
-            }
-
-            // Calculate the total number of elements
-            let totalElements = numbers.length + 1;
-
-            // Calculate the sum of the given numbers
-            let sumOfGivenNumbers = numbers.reduce((a, b) => a + b, 0);
-
-            // Calculate the number required to reach the target average
-            let requiredNumber = (targetAverage * totalElements) - sumOfGivenNumbers;
-
-            // Display the result
-            document.getElementById('result').innerText = "Required number: " + requiredNumber;
-        }
-    </script>
-</body>
-</html>
+            let
